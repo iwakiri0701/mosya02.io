@@ -1,0 +1,374 @@
+@charset "utf-8";
+
+/* ハンバーガーメニュー */
+/* cssリセット */
+
+/*利用するタグによってこちらの内容は増やす*/
+
+html,
+body,
+p,
+dl,
+dt,
+dd,
+ul,
+li,
+h4,
+a,
+h1,
+h2,
+h3,
+footer {
+  font-family: "sans-serif";
+
+  /*デフォルトの文字色、font-familyを予め当てておく*/
+  color: var(--black);
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  /*下線を消す*/
+  text-decoration: none;
+  /*色を消す*/
+  color: inherit;
+  transition: 0.3s;
+}
+
+a:hover {
+  opacity: 0.5;
+}
+
+ul,
+li {
+  /*左の「・」を消す*/
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+  border: none;
+}
+
+:root {
+  --black: #121212;
+}
+
+/* ハンバーガーメニュー */
+
+.nav_wrap {
+  padding: 20px 40px;
+}
+
+/* 初期状態でメニューを画面の外に隠す */
+
+#nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  width: 300px;
+  color: #fff;
+  padding: 60px 25px;
+  background-color: var(--black);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: all 0.5s;
+  z-index: 5;
+}
+
+#nav.open {
+  left: 0;
+}
+
+#nav ul li a {
+  color: #ffffff;
+}
+
+.menu_nav li {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 20px 0;
+}
+
+.nav_sns {
+  padding: 5px 0;
+  margin-top: 40px;
+}
+
+.header_area {
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  padding: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.nav_btn {
+  display: block;
+  position: absolute;
+  top: 35px;
+  right: 30px;
+  height: 23px;
+  cursor: pointer;
+  z-index: 50;
+  transition: 0.7s;
+}
+.nav_btn span {
+  display: block;
+  position: relative;
+  top: 10px;
+  width: 33px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--black);
+  transition: 0.3s;
+}
+.nav_btn span::before,
+.nav_btn span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 33px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--black);
+  transition: 0.3s;
+}
+
+.nav_btn span::after {
+  top: 10px;
+}
+
+.nav_btn span::before {
+  bottom: 10px;
+}
+
+/* ハンバーガーメニューを閉じる */
+.nav_btn.open span {
+  background: transparent;
+}
+.nav_btn.open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+  background-color: #fff;
+}
+.nav_btn.open span::after {
+  top: 0;
+  transform: rotate(135deg);
+  background-color: #fff;
+}
+
+#mask {
+  display: none;
+  transition: all 0.5s;
+}
+#mask.open {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/*  */
+
+/* slick */
+
+/* フォント */
+
+h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* fv */
+#video {
+  width: 100%;
+  min-height: 600px;
+  object-fit: cover;
+  margin-bottom: 110px;
+}
+
+.mp4 {
+  max-width: none;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+/* feature */
+#feature {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 100px 16px 50px 16px;
+}
+
+/* カード */
+.card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.card_item {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px 4px #ccc;
+}
+.card_img-area {
+  aspect-ratio: 3/2;
+}
+.card_img-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card_title {
+  font-size: 0.76rem;
+  margin-bottom: 24px;
+}
+
+.text-area {
+  padding: 30px;
+}
+
+.card_text {
+  font-weight: bold;
+}
+
+.date {
+  margin-top: 41px;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.scroll_up {
+  transition: 0.8s ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+}
+.scroll_up.on {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* pick up */
+.pickup_slick {
+  overflow: hidden;
+}
+
+.pickup_slide {
+  padding: 0 30px;
+}
+
+.pickup_slide img {
+  width: 100%;
+}
+/* contact */
+#contact {
+  color: #fff;
+  background-color: var(--black);
+  padding: 50px 0;
+}
+
+.contact_wrap {
+  max-width: 1240px;
+  padding: 0 16px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_text,
+.contact_form {
+  width: 45%;
+}
+
+.contact_text p {
+  color: #ffffff;
+}
+
+.contact_text p:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+}
+
+input,
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.btn.btn-primary {
+  width: 200px;
+  color: #fff;
+  background-color: var(--black);
+  border: solid 1px #fff;
+  padding: 12px 0;
+  margin-bottom: 0;
+}
+
+.btn.btn-primary:hover {
+  background: #fff;
+  color: var(--black);
+  transform: 0.3s;
+}
+
+/* footer */
+
+footer {
+  background: var(--black);
+}
+.copyright {
+  font-size: 12px;
+  text-align: center;
+  color: #ffffff;
+  padding: 12px;
+}
+
+@media screen and (max-width: 983px) {
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 657px) {
+  .card {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contact_wrap {
+    display: block;
+  }
+
+  .contact_text,
+  .contact_form {
+    width: 100%;
+  }
+
+  .btn.btn-primary {
+    width: 100%;
+  }
+}
